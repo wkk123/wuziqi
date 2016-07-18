@@ -1,0 +1,240 @@
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+%juzhong{
+	position: absolute;
+	left:0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+}
+$width:600px;
+body{
+	background: url(1.jpg) no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}
+.zhuozi{
+    @extend %juzhong;
+    width: $width;
+    height: $width;
+    margin-top: $width/30;
+    position: relative;
+    background-color: rgba(175, 173, 176, 0.6);
+	transform:translateY(1000px);
+	opacity: 0;
+
+}
+.zhuozi.animation{
+	transition:all 0.8s ease;
+	transform:translateY(0);
+	opacity: 1;
+}
+.zhuozi .qizi{
+	width: $width/15-10px;
+	height: $width/15-10px;
+	border-radius: 50%;
+	float:left;
+	margin:$width/120;
+	z-index: 50;
+	position: relative;
+	cursor: pointer;
+}
+.zhuozi .qizi.hei{
+	background-image:url(hei.png);
+	background-size: cover;
+	background-position: center center;
+
+}
+.zhuozi .qizi.bai{
+	background: url(bai.png);
+	background-size: cover;
+	background-position: center center;
+	
+}
+.zhuozi b,.zhuozi i{
+	display: block;
+	background: #888888;
+	position: absolute;
+}
+.zhuozi .shu{
+	width: $width - $width/15;
+	height: 2px;
+
+
+}
+.zhuozi .hang{
+	width: 2px;
+	height: $width - $width/15;	
+}
+@for $i from 0 through 14{
+	.zhuozi i:nth-of-type(#{$i+1}){
+		top:$width/30+$i*$width/15;
+		margin-left:$width/15/2;
+	}
+	.zhuozi b:nth-of-type(#{$i+1}){
+		left:$width/30+$i*$width/15;
+		margin-top:$width/15/2;
+	}
+}
+.zhuozi .dian{
+	width: $width/15/4;
+	height: $width/15/4;
+	border-radius: 50%;
+	background: #000;
+	position: absolute;
+	z-index: 10;
+	@for $i from 1 through 5{
+		&:nth-of-type(#{$i}){};
+	}
+	&:nth-of-type(1){
+		top: 3.5*$width/15-$width/15/4/2+1px;
+		left: 3.5*$width/15-$width/15/4/2+1px;
+	};
+	&:nth-of-type(2){
+		top: 3.5*$width/15-$width/15/4/2+1px;
+		left: 11.5*$width/15-$width/15/4/2+1px;
+	};
+	&:nth-of-type(3){
+		top: 11.5*$width/15-$width/15/4/2+1px;
+		left: 3.5*$width/15-$width/15/4/2+1px;
+	};
+	&:nth-of-type(4){
+		top: 11.5*$width/15-$width/15/4/2+1px;
+		left: 11.5*$width/15-$width/15/4/2+1px;
+	};
+	&:nth-of-type(5){
+		top: 7.5*$width/15-$width/15/4/2+1px;
+		left: 7.5*$width/15-$width/15/4/2+1px;
+	};
+
+}
+.button{
+	width: $width/5;
+	height: $width;
+	background-color: rgba(175, 173, 176, 0.6);
+	@extend %juzhong;
+	float:left;
+	margin-right:$width/6*2;
+	margin-top:$width/30;
+	text-align: center;
+	opacity: 0;
+	transform:translateY(1000px);
+	opacity: 0;
+	h2{
+		margin-top:20px;
+		margin-bottom: 20px;
+	}
+    li{
+    	width: $width/6;
+    	height: $width/15;
+    	background-image: url(1.png);
+    	background-size: $width/5 $width/7.5;
+    	background-position: center center; 
+    	margin-left:$width/60;
+    	margin-top:$width/60;
+    	font-size: 14px;
+    	font-weight: 700;
+    	text-align: center;
+    	line-height:  $width/15;
+    	color:#888888;
+    	cursor: pointer;
+    	&:nth-of-type(1){
+    		margin-top:60px;
+    	}
+    	&:hover{
+    		color:#080808;
+    	};
+    }
+
+}
+.button.animation{
+	transition:all 0.8s ease;
+	transform:translateY(0);
+	opacity: 1;
+}
+.audio{
+	display: none;
+}
+.tishi{
+	width: $width/2;
+	height: $width/4;
+	@extend %juzhong;
+	background:#B1AFB5;
+	z-index: 999;
+	border:2px solid #555558;
+	box-shadow: 4px 12px 18px #555558;
+	border-radius: 10px;
+	text-align: center;
+	line-height: $width/4;
+	font-size: 30px;
+	font-weight: 700;
+	color:white;
+	transition:transform 0.8s ease;
+	transform:translateY(1000px);
+
+}
+.tishi.animation{
+	transform:translateY(0);
+}
+.changjing{
+	width: $width;
+	height: $width;
+	font-weight: 600;
+	@extend %juzhong;
+	position: relative;
+	font-family: Monospace;
+	display:block;
+	li{     width: $width/3;
+        	height: $width/6;
+        	@extend %juzhong;
+        	margin-top: $width/1.8;
+        	background-color: #EBECEE;
+    	    box-shadow: -1px 2px 18px #B2AEBF;
+    	    border-radius: 20px;
+        	font-size: 40px;
+        	text-align: center;
+        	line-height: $width/6;
+        	cursor:pointer;
+        	transform:translateY(1000px);
+            animation:diaoluo .5s ease forwards .6s;
+        }
+	span{
+		display: block;
+		width: $width/6;
+		height:$width/6;
+		text-align: center;
+		line-height: $width/6;
+		font-size: 50px;
+		color:#fff;
+        @extend %juzhong;
+        margin-top: $width/3;
+        float:left;
+        transform:translateY(-1000px);
+        &:nth-of-type(1){
+        	margin-left: $width/12;
+        	animation:diaoluo .5s ease forwards;
+        }
+        &:nth-of-type(2){
+        	margin-left: $width/2.4;
+        	animation:diaoluo .5s ease forwards .2s;
+        }
+        &:nth-of-type(3){
+        	margin-left: $width/1.33;
+        	animation:diaoluo .5s ease forwards .4s;
+        }
+
+        
+	}
+}
+@keyframes diaoluo {
+  0%{
+    transform: translateY(-1000px);
+  }
+  100%{
+    transform:translateY(0);
+  }
+}
